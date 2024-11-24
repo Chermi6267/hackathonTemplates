@@ -1,0 +1,85 @@
+@import "../../scss/variables.scss";
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 70px;
+  width: 90%;
+  margin: 10px auto;
+  position: sticky;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding-left: 15px;
+  max-width: 100%;
+  border: 2px solid $peach_color;
+  border-radius: 50px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.2) 10%,
+    rgba(50, 50, 50, 0.7) 100%
+  );
+  backdrop-filter: blur(20px);
+  transition: top ease-out 1500ms;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  img {
+    border-radius: 100vw;
+    outline: 0 solid $peach_color;
+    transition: outline ease-in-out 50ms;
+
+    @media (hover: hover) {
+      &:hover {
+        outline: 2px solid $peach_color;
+      }
+    }
+  }
+
+  &__panel {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-width: 90%;
+  }
+
+  &.hidden {
+    transform: translateY(-50%);
+    transition: transform ease-out 1000ms;
+  }
+
+  &.visible {
+    transform: translateY(2%);
+    transition: transform ease-out 1000ms;
+  }
+}
+
+.panel {
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+    padding: 0 2.5vw;
+    border-left: 2px solid $peach_color;
+    color: $text_color;
+
+    &:first-child {
+      border-left: 2px solid $peach_color;
+    }
+
+    &:last-child {
+      border-right: 0;
+      border-radius: 0 50px 50px 0;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: rgba(255, 120, 0, 0.2);
+      }
+    }
+  }
+}

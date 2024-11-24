@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model Role {
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  users User[]
+}
+
+model User {
+  id           Int      @id @default(autoincrement())
+  email        String   @unique
+  hashPassword String?
+  loggedWith   String
+  role         Role     @relation(fields: [roleId], references: [id])
+  roleId       Int
+  profile      Profile?
+  token        token?
+
+  @@index([roleId])
+}
+
+model token {
+  id     Int    @id @default(autoincrement())
+  token  String @db.MediumText()
+  userId Int    @unique
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Profile {
+  id     Int     @id @default(autoincrement())
+  name   String?
+  avatar String?
+  header String?
+  user   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId Int     @unique
+}
