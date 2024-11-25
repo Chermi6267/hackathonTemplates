@@ -1,0 +1,18 @@
+@import "../../scss/mixins.scss";
+@import "../../scss/variables.scss";
+
+.giga_chat {
+  @include glass-shell;
+
+  &__text {
+    margin: 0;
+    padding: max(10px, 1.5vw);
+    font-size: 1.1rem;
+  }
+
+  &__title {
+    margin-bottom: 0.8vh;
+    padding-left: max(10px, 1.5vw);
+    font-size: 1.5rem;
+  }
+}

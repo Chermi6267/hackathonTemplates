@@ -30,15 +30,13 @@ function AuthPage(props: Props) {
           id: "1",
 
           style: {
-            backgroundColor: "rgba(65, 67, 112, 0.25)",
-            outline: "2px solid rgba(65, 67, 112, 1)",
-            color: "white",
-            backdropFilter: "blur(5px)",
+            background: "rgb(36, 36, 36)",
+            color: "#fa812f",
           },
 
           iconTheme: {
-            primary: "#eb4335",
-            secondary: "white",
+            primary: "#838383",
+            secondary: "#fa812f",
           },
         }
       );
@@ -59,22 +57,20 @@ function AuthPage(props: Props) {
           id: "2",
 
           style: {
-            backgroundColor: "rgba(65, 67, 112, 0.25)",
-            outline: "2px solid rgba(65, 67, 112, 1)",
-            color: "white",
-            backdropFilter: "blur(2px)",
+            background: "rgb(36, 36, 36)",
+            color: "#fa812f",
           },
 
           error: {
             iconTheme: {
-              primary: "#eb4335",
-              secondary: "white",
+              primary: "#838383",
+              secondary: "#fa812f",
             },
           },
 
           iconTheme: {
-            primary: "#a8cd9f",
-            secondary: "white",
+            primary: "green",
+            secondary: "#fa812f",
           },
         }
       );

@@ -53,7 +53,7 @@
 
     label {
       margin: 0;
-      font-size: 1.3rem;
+      font-size: 1.4rem;
     }
   }
 
@@ -70,7 +70,7 @@
 
     @media (hover: hover) {
       &:hover {
-        background-color: rgba(0, 100, 160, 0.5);
+        background-color: rgba(34, 34, 34, 0.5);
         transition: background-color ease-in-out 100ms;
       }
     }
@@ -116,7 +116,7 @@
 
     @media (hover: hover) {
       &:hover {
-        background-color: rgba(0, 100, 160, 0.5);
+        background-color: rgba(34, 34, 34, 0.5);
         transition: background-color ease-in-out 100ms;
       }
     }
@@ -131,7 +131,7 @@
 
     @media (hover: hover) {
       &:hover {
-        background-color: rgba(0, 100, 160, 0.5);
+        background-color: rgba(34, 34, 34, 0.5);
         transition: background-color ease-in-out 100ms;
       }
     }

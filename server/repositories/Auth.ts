@@ -1,5 +1,6 @@
 import prisma from "./prismaClient";
 import { IReg } from "../interfaces/User";
+import { uniqueNamesGenerator, colors, animals } from "unique-names-generator";
 
 export class AuthRepository {
   // Get user
@@ -43,7 +44,12 @@ export class AuthRepository {
           loggedWith: loggedWith,
           profile: {
             create: {
-              name: name,
+              name:
+                name === "" || name === undefined
+                  ? uniqueNamesGenerator({
+                      dictionaries: [colors, animals],
+                    })
+                  : name,
               avatar: avatar,
             },
           },

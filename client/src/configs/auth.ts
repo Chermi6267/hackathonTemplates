@@ -23,7 +23,6 @@ export const authConfig: AuthOptions = {
     signIn: async ({ account, profile }) => {
       try {
         if (account?.provider === "google") {
-          console.log(profile);
           const response = await axios.post(
             "http://localhost:5550/auth/registration",
             {

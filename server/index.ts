@@ -5,13 +5,20 @@ import cors from "cors";
 import { authRouter } from "./routers/Auth";
 import { userRouter } from "./routers/User";
 import { gracefulShutdown } from "./gracefulShutDown";
+import { Server } from "socket.io";
+import { configDotenv } from "dotenv";
+import path = require("path");
+import { GigaChatService } from "./services/GigaChatService";
+
+const gigaChatService = new GigaChatService();
+configDotenv({ path: path.resolve(__dirname, ".", ".env") });
 
 const app = express();
 app.use(cookieParser());
 app.use(
   cors({
     credentials: true,
-    origin: [process.env.CLIENT_URL!],
+    origin: process.env.CLIENT_URL,
   })
 );
 app.use(express.json());
@@ -19,6 +26,19 @@ app.use("/auth", authRouter);
 app.use("/user", userRouter);
 
 const server = http.createServer(app);
+export const io = new Server(server, {
+  cors: { origin: process.env.CLIENT_URL },
+});
+
+io.on("connection", (socket) => {
+  socket.on("giga", async (data) => {
+    return await gigaChatService.speech(data.text, socket);
+  });
+
+  socket.on("disconnect", () => {
+    console.log("User disconnected");
+  });
+});
 
 // Simple check for server start
 app.get("/", async (req: Request, res: Response) => {
