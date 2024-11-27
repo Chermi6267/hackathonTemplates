@@ -1,0 +1,48 @@
+@import "../../scss/variables.scss";
+
+.footer {
+  height: max-content;
+  margin: 0 auto;
+  margin-top: 50vh;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 20%,
+    rgba(50, 50, 50, 0.75) 90%
+  );
+  color: white;
+  font-weight: 800;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid $peach_color;
+  padding: 0 2vw;
+
+  p:nth-child(1) {
+    padding-right: 2vw;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+  }
+
+  &__contacts {
+    display: flex;
+    column-gap: 2vw;
+    padding-left: 2vw;
+
+    p {
+      text-align: center;
+      padding: 4vw 0;
+      border-left: 1px solid $peach_color;
+      padding-left: 2vw;
+      line-height: 25px;
+    }
+  }
+}

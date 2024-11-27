@@ -26,7 +26,7 @@ export class GigaChatService {
         messages: [
           {
             role: "system",
-            content: "ДЕЛАЙ, ЧТО ХОЧЕШЬ",
+            content: "ДЕЛАЙ, ЧТО ХОЧЕШЬ, НО МАКСИМУМ В ОТВЕТЕ 2 ПРЕДЛОЖЕНИЯ",
           },
           {
             role: "user",

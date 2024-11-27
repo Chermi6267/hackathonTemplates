@@ -12,7 +12,29 @@
 
   &__title {
     margin-bottom: 0.8vh;
-    padding-left: max(10px, 1.5vw);
     font-size: 1.5rem;
+    padding-left: 15px;
   }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.blinking_cursor {
+  display: inline-block;
+  background-color: $peach_color;
+  width: 0.5vw;
+  height: 1em;
+  animation: blink 900ms infinite step-end;
 }

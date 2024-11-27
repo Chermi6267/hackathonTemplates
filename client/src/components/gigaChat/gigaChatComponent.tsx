@@ -7,17 +7,17 @@ import { handleMessage } from "./handleMessage";
 import { socket } from "@/socket/socket";
 import { useDebounce } from "@/hook/useDebounce";
 
-interface Props {}
+interface Props {
+  trigger: string;
+}
 
 function GigaChatComponent(props: Props) {
-  const {} = props;
+  const { trigger } = props;
   const [gigaText, setGigaText] = useState("");
   const gigaTextRef = useRef<HTMLDivElement | null>(null);
   const [isGigaFetching, setIsGigaFetching] = useState(false);
-  const [isGigaError, setIsGigaError] = useState(true);
-  const [text, setText] = useState("");
-  const [forDebounce, setForDebounce] = useState(1);
-  const debounceValue = useDebounce(forDebounce, 1000);
+  const [isGigaError, setIsGigaError] = useState(false);
+  const debounce = useDebounce(trigger, 1000);
 
   useEffect(() => {
     const onMessageHandler = (text: string) => {
@@ -38,21 +38,20 @@ function GigaChatComponent(props: Props) {
   }, []);
 
   useEffect(() => {
-    if (text === "") {
-      console.log("BLANK");
-      return;
-    } else {
-      socket.emit("giga", { text: text });
-      setGigaText("");
-      setIsGigaFetching(true);
-      setIsGigaError(false);
+    onClickHandler();
+  }, [debounce]);
 
-      return () => {
-        socket.off("giga");
-        setIsGigaFetching(false);
-      };
-    }
-  }, [debounceValue]);
+  const onClickHandler = () => {
+    socket.emit("giga", { text: debounce });
+    setGigaText("");
+    setIsGigaFetching(true);
+    setIsGigaError(false);
+
+    return () => {
+      socket.off("giga");
+      setIsGigaFetching(false);
+    };
+  };
 
   return (
     <div style={{ width: "100%" }}>
@@ -64,22 +63,6 @@ function GigaChatComponent(props: Props) {
         isFetching={isGigaFetching}
         isError={isGigaError}
       />
-
-      <input
-        style={{ marginTop: 15 }}
-        type="text"
-        onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
-          setText(e.target.value);
-        }}
-      />
-
-      <button
-        onClick={() => {
-          setForDebounce(forDebounce + 1);
-        }}
-      >
-        OK
-      </button>
     </div>
   );
 }

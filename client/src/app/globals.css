@@ -12,8 +12,9 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  row-gap: 20vh;
+  row-gap: 3vh;
   position: relative;
-  width: 70vw;
+  width: 55vw;
   margin: 0 auto;
+  margin-bottom: 30px;
 }

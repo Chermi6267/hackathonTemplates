@@ -1,0 +1,83 @@
+@import "../../scss/variables.scss";
+@import "../../scss/mixins.scss";
+
+.d3_cont {
+  width: 100%;
+  height: 60vh;
+  @include flex-center;
+  position: relative;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 1.5vw;
+  margin-top: 5vh;
+  $size: 2vw;
+
+  &__btns {
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+  }
+
+  &__btn {
+    @include glass-shell;
+    border: none;
+    color: $text-color;
+    font-size: 1rem;
+    font-family: var(--comfortaa);
+    width: $size;
+    height: $size;
+    border-radius: 100vw;
+    cursor: pointer;
+    transition: background-color 100ms ease;
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: $light-peach-color;
+        transition: background-color 100ms ease;
+      }
+    }
+  }
+
+  &__img_cont {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+
+    .img {
+      @include glass-shell;
+      outline: none;
+      width: 100%;
+      height: 90%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      position: absolute;
+      transition: opacity 500ms ease-in-out;
+    }
+  }
+}
+
+.giga_chat {
+  @include glass-shell;
+
+  &__text {
+    margin: 0;
+    padding: max(10px, 1.5vw);
+    font-size: 1.1rem;
+  }
+}
+
+.description {
+  @include glass-shell;
+
+  &__title {
+    margin-bottom: 0.8vh;
+    font-size: 1.5rem;
+    padding-left: 15px;
+  }
+
+  &__text {
+    margin: 0;
+    padding: max(10px, 1.5vw);
+    font-size: 1.1rem;
+  }
+}

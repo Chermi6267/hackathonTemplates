@@ -9,6 +9,8 @@ import { Server } from "socket.io";
 import { configDotenv } from "dotenv";
 import path = require("path");
 import { GigaChatService } from "./services/GigaChatService";
+import { landmarkRouter } from "./routers/Landmark";
+import { courseRouter } from "./routers/Course";
 
 const gigaChatService = new GigaChatService();
 configDotenv({ path: path.resolve(__dirname, ".", ".env") });
@@ -23,6 +25,8 @@ app.use(
 );
 app.use(express.json());
 app.use("/auth", authRouter);
+app.use("/landmark", landmarkRouter);
+app.use("/course", courseRouter);
 app.use("/user", userRouter);
 
 const server = http.createServer(app);
@@ -32,7 +36,7 @@ export const io = new Server(server, {
 
 io.on("connection", (socket) => {
   socket.on("giga", async (data) => {
-    return await gigaChatService.speech(data.text, socket);
+    return await gigaChatService.speech(`Расскажи про ${data.text}`, socket);
   });
 
   socket.on("disconnect", () => {

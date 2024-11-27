@@ -16,7 +16,7 @@ const pacifico = Pacifico({
 });
 
 export const metadata: Metadata = {
-  title: "D4C",
+  title: "IndustTourism",
   description: "Dirty deeds done dirty cheap!",
 };
 

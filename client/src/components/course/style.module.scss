@@ -1,0 +1,36 @@
+@import "../../scss/variables.scss";
+@import "../../scss/mixins.scss";
+
+.course_cont {
+  @include glass-shell;
+  padding: 5px;
+  padding-left: 15px;
+  width: calc(100% - 20px);
+
+  &__f {
+    @extend .course_cont;
+    background-color: rgba(16, 107, 226, 0.187);
+    outline-color: rgba(16, 107, 226, 0.5);
+  }
+
+  &__o {
+    @extend .course_cont;
+    background-color: rgba(16, 226, 131, 0.187);
+    outline-color: rgba(16, 226, 131, 0.5);
+  }
+
+  &__btn_cont {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.course_btn {
+  @include glass-shell;
+  color: white;
+  font-family: var(--comfortaa);
+  width: 30%;
+  height: 35px;
+  border: none;
+}

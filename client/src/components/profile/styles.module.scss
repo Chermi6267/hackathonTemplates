@@ -20,6 +20,7 @@
 
   &__header_avatar {
     width: 100%;
+    background-color: $peach-glass-color;
     height: calc(45vh / 2.7);
     background-size: cover;
     background-repeat: no-repeat;
@@ -29,6 +30,7 @@
 
     &::before {
       content: "";
+      background-color: $peach-color;
       position: absolute;
       bottom: calc(-0.5 * $size);
       width: $size;
@@ -147,7 +149,7 @@
     color: $error-color;
     outline: 2px solid $peach-color;
     border-radius: 7.5px;
-    background-color: $purple-glass-color;
+    background-color: $peach-glass-color;
     font-family: var(--comfortaa_font);
     transition: background-color 150ms ease-in;
 

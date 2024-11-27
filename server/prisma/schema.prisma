@@ -14,16 +14,43 @@ model Role {
 }
 
 model User {
-  id           Int      @id @default(autoincrement())
-  email        String   @unique
+  id           Int          @id @default(autoincrement())
+  email        String       @unique
   hashPassword String?
   loggedWith   String
-  role         Role     @relation(fields: [roleId], references: [id])
+  role         Role         @relation(fields: [roleId], references: [id])
   roleId       Int
   profile      Profile?
   token        token?
+  CourseUser   CourseUser[]
 
   @@index([roleId])
+}
+
+model Course {
+  id          Int          @id @default(autoincrement())
+  name        String
+  description String
+  price       String
+  catId       String
+  icon        String
+  courseUsers CourseUser[]
+}
+
+model CourseUser {
+  userId   Int
+  courseId Int
+  user     User   @relation(fields: [userId], references: [id])
+  course   Course @relation(fields: [courseId], references: [id])
+
+  @@id([userId, courseId])
+}
+
+model AdminCenter {
+  id      String  @unique
+  name    String  @unique
+  capital String
+  area    Decimal @default(0)
 }
 
 model token {
