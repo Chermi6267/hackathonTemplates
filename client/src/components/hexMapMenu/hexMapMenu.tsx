@@ -22,7 +22,7 @@ function HexMapMenu(props: { initialAdminCenterData: IAdminCenter }) {
   const catFilter = useSelector((state: RootState) => {
     return state.filters.categories;
   });
-  const debounceCatFilter = useDebounce(catFilter, 1000);
+  const debounceCatFilter = useDebounce(catFilter, 5000);
 
   // ================================
 
@@ -56,7 +56,7 @@ function HexMapMenu(props: { initialAdminCenterData: IAdminCenter }) {
         style={{
           backgroundImage: `url(/quarry/0.png)`,
           width: "80%",
-          height: "300px",
+          height: "286px",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           margin: "0 auto",

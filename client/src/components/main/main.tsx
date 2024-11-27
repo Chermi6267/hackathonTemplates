@@ -24,7 +24,11 @@ function Main(props: Props) {
             return (
               <button
                 key={item.id}
+                style={item.id === state ? { backgroundColor: "#ffbc8f" } : {}}
                 className={styles.d3_cont__btn}
+                onMouseEnter={() => {
+                  setState(item.id);
+                }}
                 onClick={() => {
                   setState(item.id);
                 }}

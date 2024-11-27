@@ -17,7 +17,7 @@ function GigaChatComponent(props: Props) {
   const gigaTextRef = useRef<HTMLDivElement | null>(null);
   const [isGigaFetching, setIsGigaFetching] = useState(false);
   const [isGigaError, setIsGigaError] = useState(false);
-  const debounce = useDebounce(trigger, 1000);
+  const debounce = useDebounce(trigger, 5000);
 
   useEffect(() => {
     const onMessageHandler = (text: string) => {

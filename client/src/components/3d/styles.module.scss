@@ -1,9 +1,0 @@
-@import "../../scss/variables.scss";
-@import "../../scss/mixins.scss";
-
-.model {
-  @include glass-shell;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-}

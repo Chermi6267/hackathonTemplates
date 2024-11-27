@@ -50,28 +50,11 @@ function HeaderComponent(props: Props) {
           <ul className={styles.header__panel}>
             <li
               onClick={() => {
-                console.log("ITEM1");
+                router.push("/about");
               }}
               className={styles.panel__item}
             >
-              ITEM1
-            </li>
-            <li
-              onClick={() => {
-                console.log("ITEM2");
-              }}
-              className={styles.panel__item}
-            >
-              ITEM2
-            </li>
-
-            <li
-              onClick={() => {
-                console.log("ITEM3");
-              }}
-              className={styles.panel__item}
-            >
-              ITEM3
+              О нас
             </li>
 
             <li
